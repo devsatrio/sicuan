@@ -75,6 +75,14 @@
             </ul>
         </li>
         <li class="nav-item">
+            <a href="{{url('/galeri')}}" class="nav-link">
+                <i class="nav-icon fas fa-images"></i>
+                <p>
+                    Galeri
+                </p>
+            </a>
+        </li>
+        <li class="nav-item">
             <a href="{{url('/slider')}}" class="nav-link">
                 <i class="nav-icon fas fa-image"></i>
                 <p>

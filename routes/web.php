@@ -15,6 +15,7 @@ Route::post('/edit-profile/{id}', 'backend\HomeController@aksieditprofile');
 Route::resource('/admin','backend\AdminController');
 Route::resource('/menu','backend\MenuController');
 Route::resource('/halaman','backend\HalamanController');
+Route::resource('/galeri','backend\GaleriController');
 Route::resource('/submenu','backend\SubmenuController');
 Route::resource('/kategori-artikel','backend\KategoriartikelController');
 Route::resource('/artikel','backend\ArtikelController');
