@@ -2,9 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'frontend\FrontendController@index');
 
 Auth::routes();
 Route::get('/home', 'backend\HomeController@index')->name('home');

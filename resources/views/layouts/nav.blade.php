@@ -16,7 +16,7 @@
                 </p>
             </a>
         </li>
-        <li class="nav-item has-treeview">
+        <!-- <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-th-large"></i>
                 <p>
@@ -44,7 +44,7 @@
                     </a>
                 </li>
             </ul>
-        </li>
+        </li> -->
         <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-paint-brush"></i>
@@ -66,12 +66,12 @@
                         <p>Artikel</p>
                     </a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a href="{{url('komentar')}}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Komentar</p>
                     </a>
-                </li>
+                </li> -->
             </ul>
         </li>
         <li class="nav-item">
