@@ -38,10 +38,10 @@
                 <div class="collapse navbar-collapse sub-menu-bar" id="navbarContent">
                     <ul class="navbar-nav ml-auto">
                         <li class="active"><a class="page-scroll" href="#home">Home</a></li>
-                        <li><a class="page-scroll" href="#features">Features</a></li>
+                        <!-- <li><a class="page-scroll" href="#features">Features</a></li> -->
                         <li><a class="page-scroll" href="#profile">Profile</a></li>
                         <li><a class="page-scroll" href="#screenshot">Interface</a></li>
-                        <li><a class="page-scroll" href="#screenshot">Galeri</a></li>
+                        <li><a class="page-scroll" href="#galeri">Galeri</a></li>
                         <li><a class="page-scroll" href="#blog">Artikel</a></li>
                     </ul>
                     <div class="navbar-btn">
@@ -68,12 +68,14 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <div class="banner-content">
-                            <h2 class="title wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.2s">{{$sld->judul}}</h2>
+                            <h2 class="title wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.2s">
+                                {{$sld->judul}}</h2>
                             <p class="wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.6s">
-                            {{$sld->isi}}
+                                {{$sld->isi}}
                             </p>
                             @if($sld->link!='')
-                            <a target="blank()" href="{{$sld->link}}" class="mt-3 main-btn main-btn-2">{{$sld->link_text}}</a>
+                            <a target="blank()" href="{{$sld->link}}"
+                                class="mt-3 main-btn main-btn-2">{{$sld->link_text}}</a>
                             @endif
                         </div>
                     </div>
@@ -193,55 +195,11 @@
 
     <!--====== Features Ends ======-->
 
-    <!--====== Powerful Tools Start ======-->
 
-    <section id="powerful" class="powerful-tools-area">
-        <div class="powerful-shape shape-1"></div>
-        <div class="powerful-shape shape-2">
-            <img src="{{asset('assets/frontend/images/shape/shape-5.png')}}" alt="">
-        </div>
-
-        <div class="container">
-            <div class="powerful-tools-wrapper">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="powerful-image mt-50 wow fadeInLeftBig" data-wow-duration="1s"
-                            data-wow-delay="0.3s">
-                            <div class="image">
-                                <img src="{{asset('assets/frontend/images/powerful-app.png')}}" alt="">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="powerful-tools-content mt-50">
-                            <div class="section-title">
-                                <p class="sub-title">Providing Best Services</p>
-                                <h2 class="title">Powerful tools for your customers</h2>
-                            </div>
-                            <div class="powerful-content-wrapper">
-                                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                                    fugiat nulla pariatur.</p>
-                                <ul class="content-list">
-                                    <li><i class="fas fa-check"></i> Refresing to get such a personal touch. </li>
-                                    <li><i class="fas fa-check"></i> Duis aute irure dolor in reprehenderit in
-                                        voluptate.</li>
-                                    <li><i class="fas fa-check"></i> Velit esse cillum dolore eu fugiat nulla pariatur.
-                                    </li>
-                                </ul>
-                                <a href="#" class="main-btn main-btn-2">Learn More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!--====== Powerful Tools Ends ======-->
 
     <!--====== Discover Start ======-->
 
-    <section id="discover" class="discover-area">
+    <section id="profile" class="discover-area">
         <div class="discover-shape shape-1">
             <img src="{{asset('assets/frontend/images/shape/dots-2.png')}}" alt="">
         </div>
@@ -251,8 +209,8 @@
                 <div class="col-lg-6">
                     <div class="discover-content-wrapper">
                         <div class="section-title">
-                            <p class="sub-title">Providing Best Services</p>
-                            <h2 class="title">Discover more new app feature options</h2>
+                            <p class="sub-title">Who We are ?</p>
+                            <h2 class="title">Our Profile</h2>
                         </div>
                         <div class="discover-items">
                             <div class="row">
@@ -289,9 +247,9 @@
                             </div>
                         </div>
                         <div class="discover-content">
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                                has been the industry's standard dummy text ever since.</p>
-                            <a href="#" class="main-btn main-btn-2">Learn More</a>
+                            @foreach($webset as $ws)
+                            <p>{{$ws->deskripsi}}</p>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -351,7 +309,7 @@
 
     <!--====== Pricing Start ======-->
 
-    <section id="profile" class="pricing-area">
+    <section class="pricing-area">
         <div class="pricing-shape shape-1">
             <img src="{{asset('assets/frontend/images/shape/dots-3.png')}}" alt="">
         </div>
@@ -435,88 +393,6 @@
         </div>
     </section>
 
-    <!--====== Pricing Ends ======-->
-
-    <!--====== Testimonial Start ======-->
-
-    <section id="testimonial" class="testimonial-area bg_cover"
-        style="background-image: url(assets/images/testimonial-bg.jpg);">
-        <div class="testimonial-shape shape-1"></div>
-        <div class="testimonial-shape shape-2"></div>
-
-        <div class="testimonial-wrapper">
-            <div class="author-1">
-                <img src="{{asset('assets/frontend/images/author-1.jpg')}}" alt="">
-            </div>
-            <div class="author-2">
-                <img src="{{asset('assets/frontend/images/author-2.jpg')}}" alt="">
-            </div>
-            <div class="author-3">
-                <img src="{{asset('assets/frontend/images/author-3.jpg')}}" alt="">
-            </div>
-            <div class="author-4">
-                <img src="{{asset('assets/frontend/images/author-4.jpg')}}" alt="">
-            </div>
-
-            <div class="author-5">
-                <img src="{{asset('assets/frontend/images/author-5.jpg')}}" alt="">
-            </div>
-            <div class="author-6">
-                <img src="{{asset('assets/frontend/images/author-6.jpg')}}" alt="">
-            </div>
-            <div class="author-7">
-                <img src="{{asset('assets/frontend/images/author-7.jpg')}}" alt="">
-            </div>
-            <div class="author-8">
-                <img src="{{asset('assets/frontend/images/author-8.jpg')}}" alt="">
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <div class="section-title text-center">
-                        <p class="sub-title">Check Our Client Feedbacks</p>
-                        <h2 class="title">What they are saying</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-xl-8 col-lg-10">
-                    <div class="testimonial-bg">
-                        <div class="testimonial-active swiper-container">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide single-testimonial text-center">
-                                    <p>This is due to their excellent service, competitive pricing and customer support.
-                                        It’s throughly refresing to get such a personal touch. Duis aute irure dolor in
-                                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                                    </p>
-                                    <h5 class="author-name">Shirley Smith</h5>
-                                </div>
-                                <div class="swiper-slide single-testimonial text-center">
-                                    <p>This is due to their excellent service, competitive pricing and customer support.
-                                        It’s throughly refresing to get such a personal touch. Duis aute irure dolor in
-                                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                                    </p>
-                                    <h5 class="author-name">Jon Smith</h5>
-                                </div>
-                                <div class="swiper-slide single-testimonial text-center">
-                                    <p>This is due to their excellent service, competitive pricing and customer support.
-                                        It’s throughly refresing to get such a personal touch. Duis aute irure dolor in
-                                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                                    </p>
-                                    <h5 class="author-name">Rose Smith</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!--====== Testimonial Ends ======-->
-
     <!--====== Screenshot Start ======-->
 
     <section id="screenshot" class="screenshot-area">
@@ -524,8 +400,8 @@
             <div class="row justify-content-center">
                 <div class="col-lg-6">
                     <div class="section-title text-center">
-                        <p class="sub-title">Application Screenshots</p>
-                        <h2 class="title">Check Interface Look</h2>
+                        <p class="sub-title">Let's see the beautiful</p>
+                        <h2 class="title">Interface</h2>
                     </div>
                 </div>
             </div>
@@ -646,7 +522,82 @@
     <!--====== FAQ's Ends ======-->
 
     <!--====== Blog Start ======-->
+    <section id="galeri" class="blog-area">
+        <div class="blog-shape shape-1"></div>
 
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="section-title text-center">
+                        <p class="sub-title">Hey, Check Our</p>
+                        <h2 class="title">Galeri</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="blog-wrapper">
+                <div class="row">
+                    <div class="col-lg-4 blog-col">
+                        <div class="single-blog mt-55 wow fadeInLeftBig" data-wow-duration="1.3s" data-wow-delay="0.4s">
+                            <div class="blog-image">
+                                <a href="blog-details.html"><img
+                                        src="{{asset('assets/frontend/images/blog/blog-1.jpg')}}" alt=""></a>
+                                <span class="date">30 July, 2020</span>
+                            </div>
+                            <div class="blog-content">
+                                <ul class="meta">
+                                    <li><a href="#">By Admin</a></li>
+                                    <li><a href="#">2 Comments</a></li>
+                                </ul>
+                                <h4 class="blog-title"><a href="blog-details.html">Pre and post launch mobile app
+                                        marketing</a></h4>
+                                <p>There are many variations of passages of available but majority have alteration in
+                                    some by inject words.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 blog-col">
+                        <div class="single-blog mt-55 wow fadeInUpBig" data-wow-duration="1.3s" data-wow-delay="0.4s">
+                            <div class="blog-image">
+                                <a href="blog-details.html"><img
+                                        src="{{asset('assets/frontend/images/blog/blog-2.jpg')}}" alt=""></a>
+                                <span class="date">30 July, 2020</span>
+                            </div>
+                            <div class="blog-content">
+                                <ul class="meta">
+                                    <li><a href="#">By Admin</a></li>
+                                    <li><a href="#">2 Comments</a></li>
+                                </ul>
+                                <h4 class="blog-title"><a href="blog-details.html">Pre and post launch mobile app
+                                        marketing</a></h4>
+                                <p>There are many variations of passages of available but majority have alteration in
+                                    some by inject words.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 blog-col">
+                        <div class="single-blog mt-55 wow fadeInRightBig" data-wow-duration="1.3s"
+                            data-wow-delay="0.4s">
+                            <div class="blog-image">
+                                <a href="blog-details.html"><img
+                                        src="{{asset('assets/frontend/images/blog/blog-3.jpg')}}" alt=""></a>
+                                <span class="date">30 July, 2020</span>
+                            </div>
+                            <div class="blog-content">
+                                <ul class="meta">
+                                    <li><a href="#">By Admin</a></li>
+                                    <li><a href="#">2 Comments</a></li>
+                                </ul>
+                                <h4 class="blog-title"><a href="blog-details.html">Pre and post launch mobile app
+                                        marketing</a></h4>
+                                <p>There are many variations of passages of available but majority have alteration in
+                                    some by inject words.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <section id="blog" class="blog-area">
         <div class="blog-shape shape-1"></div>
 
@@ -654,8 +605,8 @@
             <div class="row justify-content-center">
                 <div class="col-lg-6">
                     <div class="section-title text-center">
-                        <p class="sub-title">From the Blog</p>
-                        <h2 class="title">News & Articles</h2>
+                        <p class="sub-title">You can alse read</p>
+                        <h2 class="title">Artikel</h2>
                     </div>
                 </div>
             </div>
@@ -796,7 +747,8 @@
 
     <!--====== Footer Start ======-->
 
-    <footer id="footer" class="footer-area bg_cover" style="background-image: url(../assets/frontend/images/footer-bg.jpg);">
+    <footer id="footer" class="footer-area bg_cover"
+        style="background-image: url(../assets/frontend/images/footer-bg.jpg);">
         <div class="footer-shape shape-1"></div>
 
         <div class="container">
@@ -805,16 +757,17 @@
                 <div class="row">
                     <div class="col-lg-8 pr-0">
                         <div class="footer-widget-wrapper">
-                            <div class="footer-about mt-45">
-                                <h4 class="footer-title">About</h4>
-                                <p>{{$ws->deskripsi}}</p>
-                                <ul class="social">
-                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-youtube"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                </ul>
-                            </div>
 
+                            
+                        <div class="footer-about mt-45">
+                            <h4 class="footer-title">Our Motto</h4>
+                            <p>{{$ws->moto}}</p>
+                            <ul class="social">
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                            </ul>
+                        </div>
                             <div class="footer-contact mt-45">
                                 <h4 class="footer-title">Contact</h4>
 
@@ -844,13 +797,18 @@
                                         </div>
                                     </li>
                                 </ul>
+                                
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 pl-0">
-                        <div class="footer-newsletter mt-45">
-                            <h4 class="footer-title">Our Motto</h4>
-                            <p>{{$ws->moto}}</p>
+                        <div class="footer-about mt-45">
+                            <h4 class="footer-title">Find Us</h4>
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.755382549861!2d112.06014021464763!3d-7.815697794368014!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7857175f9cda31%3A0x3123610563e44ab3!2sSimpang%20Lima%20Gumul!5e0!3m2!1sid!2sid!4v1609844381273!5m2!1sid!2sid"
+                                width="100%" height="100%" class="mt-3" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+                                tabindex="0"></iframe>
+                            
                         </div>
                     </div>
                 </div>
