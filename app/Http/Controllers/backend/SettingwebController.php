@@ -36,10 +36,10 @@ class SettingwebController extends Controller
             }
 
             $namelogo=time().'-'.$request->file('logo')->getClientOriginalname();
-            $request->file('logo')->move(public_path('images/setting'),$namelogo);
+            $request->file('logo')->move(base_path('../klikdesa/images/setting'),$namelogo);
 
             $namefavicon=time().'-'.$request->file('favicon')->getClientOriginalname();
-            $request->file('favicon')->move(public_path('images/setting'),$namefavicon);
+            $request->file('favicon')->move(base_path('../klikdesa/images/setting'),$namefavicon);
 
             SettingwebModel::where('id',$request->kode)
             ->update([
@@ -47,11 +47,14 @@ class SettingwebController extends Controller
                 'singkatan'=>$request->singkatan,
                 'deskripsi'=>$request->deskripsi,
                 'moto'=>$request->moto,
+                'meta'=>$request->meta,
                 'email'=>$request->email,
                 'telp_satu'=>$request->telp_satu,
                 'telp_dua'=>$request->telp_dua,
                 'link_fb'=>$request->link_fb,
                 'link_ig'=>$request->link_ig,
+                'link_android'=>$request->link_android,
+                'link_iphone'=>$request->link_iphone,
                 'link_youtube'=>$request->link_youtube,
                 'logo'=>$namelogo,
                 'favicon'=>$namefavicon,
@@ -65,7 +68,8 @@ class SettingwebController extends Controller
 
             $image = $request->file('logo');
             $input['imagename'] = time().'-'.$image->getClientOriginalName();
-            $destinationPath = public_path('images/setting');
+            //$destinationPath = public_path('images/setting');
+            $destinationPath = base_path('../klikdesa/images/setting');
             $image->move($destinationPath, $input['imagename']);
 
             SettingwebModel::where('id',$request->kode)
@@ -74,11 +78,14 @@ class SettingwebController extends Controller
                 'singkatan'=>$request->singkatan,
                 'deskripsi'=>$request->deskripsi,
                 'moto'=>$request->moto,
+                'meta'=>$request->meta,
                 'email'=>$request->email,
                 'telp_satu'=>$request->telp_satu,
                 'telp_dua'=>$request->telp_dua,
                 'link_fb'=>$request->link_fb,
                 'link_ig'=>$request->link_ig,
+                'link_android'=>$request->link_android,
+                'link_iphone'=>$request->link_iphone,
                 'link_youtube'=>$request->link_youtube,
                 'logo'=>$input['imagename'],
             ]);
@@ -90,7 +97,8 @@ class SettingwebController extends Controller
 
             $image = $request->file('favicon');
             $input['imagename'] = time().'-'.$image->getClientOriginalName();
-            $destinationPath = public_path('images/setting');
+            //$destinationPath = public_path('images/setting');
+            $destinationPath = base_path('../klikdesa/images/setting');
             $image->move($destinationPath, $input['imagename']);
 
             SettingwebModel::where('id',$request->kode)
@@ -99,11 +107,14 @@ class SettingwebController extends Controller
                 'singkatan'=>$request->singkatan,
                 'deskripsi'=>$request->deskripsi,
                 'moto'=>$request->moto,
+                'meta'=>$request->meta,
                 'email'=>$request->email,
                 'telp_satu'=>$request->telp_satu,
                 'telp_dua'=>$request->telp_dua,
                 'link_fb'=>$request->link_fb,
                 'link_ig'=>$request->link_ig,
+                'link_android'=>$request->link_android,
+                'link_iphone'=>$request->link_iphone,
                 'link_youtube'=>$request->link_youtube,
                 'favicon'=>$input['imagename'],
             ]);
@@ -114,11 +125,14 @@ class SettingwebController extends Controller
                 'singkatan'=>$request->singkatan,
                 'deskripsi'=>$request->deskripsi,
                 'moto'=>$request->moto,
+                'meta'=>$request->meta,
                 'email'=>$request->email,
                 'telp_satu'=>$request->telp_satu,
                 'telp_dua'=>$request->telp_dua,
                 'link_fb'=>$request->link_fb,
                 'link_ig'=>$request->link_ig,
+                'link_android'=>$request->link_android,
+                'link_iphone'=>$request->link_iphone,
                 'link_youtube'=>$request->link_youtube,
             ]);
         }

@@ -55,6 +55,10 @@
                                 <textarea name="moto" class="form-control">{{$row->moto}}</textarea>
                             </div>
                             <div class="form-group">
+                                <label for="exampleInputEmail1">Meta</label>
+                                <textarea name="meta" class="form-control">{{$row->meta}}</textarea>
+                            </div>
+                            <div class="form-group">
                                 <label for="exampleInputEmail1">Email</label>
                                 <input type="text" class="form-control" value="{{$row->email}}" name="email" required>
                             </div>
@@ -82,13 +86,23 @@
                                     name="link_youtube">
                             </div>
                             <div class="form-group">
+                                <label for="exampleInputEmail1">Link Android</label>
+                                <input type="text" class="form-control" value="{{$row->link_android}}"
+                                    name="link_android">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Link Apple</label>
+                                <input type="text" class="form-control" value="{{$row->link_iphone}}"
+                                    name="link_iphone">
+                            </div>
+                            <div class="form-group">
                                 <label for="exampleInputFile">Logo</label><br>
-                                <img src="{{asset('images/setting/'.$row->logo)}}" alt="" class="img-thumbnail"><br>
+                                <img src="{{asset('images/setting/'.$row->logo)}}" alt="" width="150px" class="img-thumbnail"><br>
                                 <input type="file" class="form-control" name="logo" accept="image/*">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputFile">Favicon</label><br>
-                                <img src="{{asset('images/setting/'.$row->favicon)}}" alt="" class="img-thumbnail"><br>
+                                <img src="{{asset('images/setting/'.$row->favicon)}}" alt="" width="150px" class="img-thumbnail"><br>
                                 <input type="file" class="form-control" name="favicon" accept="image/*">
                                 <input type="hidden" name="kode" value="{{$row->id}}">
                             </div>

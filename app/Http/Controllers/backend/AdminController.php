@@ -40,7 +40,8 @@ class AdminController extends Controller
         $lower_file_name=strtolower($nameland);
         $replace_space=str_replace(' ', '-', $lower_file_name);
         $finalname=time().'-'.$replace_space;
-        $destination=public_path('img/admin');
+        //$destination=public_path('img/admin');
+        $destination = base_path('../klikdesa/img/admin');
         $request->file('gambar')->move($destination,$finalname);
         
         User::insert([
@@ -79,7 +80,8 @@ class AdminController extends Controller
             $lower_file_name=strtolower($nameland);
             $replace_space=str_replace(' ', '-', $lower_file_name);
             $finalname=time().'-'.$replace_space;
-            $destination=public_path('img/admin');
+            //$destination=public_path('img/admin');
+            $destination = base_path('../klikdesa/img/admin');
             $request->file('gambar')->move($destination,$finalname);
 
             if($request->password==''){

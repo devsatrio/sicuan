@@ -38,7 +38,8 @@ class HomeController extends Controller
             $lower_file_name=strtolower($nameland);
             $replace_space=str_replace(' ', '-', $lower_file_name);
             $finalname=time().'-'.$replace_space;
-            $destination=public_path('img/admin');
+            //$destination=public_path('img/admin');
+            $destination = base_path('../klikdesa/img/admin');
             $request->file('gambar')->move($destination,$finalname);
 
             if($request->password==''){
@@ -48,7 +49,6 @@ class HomeController extends Controller
                     'username'=>$request->username,
                     'email'=>$request->email,
                     'telp'=>$request->telp,
-                    'level'=>$request->level,
                     'gambar'=>$finalname,
                 ]);
             }else{
@@ -58,7 +58,6 @@ class HomeController extends Controller
                     'username'=>$request->username,
                     'email'=>$request->email,
                     'telp'=>$request->telp,
-                    'level'=>$request->level,
                     'gambar'=>$finalname,
                     'password'=>Hash::make($request->password),
                 ]);
@@ -71,7 +70,6 @@ class HomeController extends Controller
                     'username'=>$request->username,
                     'email'=>$request->email,
                     'telp'=>$request->telp,
-                    'level'=>$request->level,
                 ]);
             }else{
                 User::find($id)
@@ -80,7 +78,6 @@ class HomeController extends Controller
                     'username'=>$request->username,
                     'email'=>$request->email,
                     'telp'=>$request->telp,
-                    'level'=>$request->level,
                     'password'=>Hash::make($request->password),
                 ]);
             }

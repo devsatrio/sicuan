@@ -30,13 +30,15 @@ class SliderController extends Controller
             $image = $request->file('gambar');
             $input['imagename'] = time().'-'.$image->getClientOriginalName();
          
-            $destinationPath = public_path('images/slider/thumbnail');
+            //$destinationPath = public_path('images/slider/thumbnail');
+            $destinationPath = base_path('../klikdesa/images/slider/thumbnail');
             $img = Image::make($image->getRealPath());
             $img->resize(150,null, function ($constraint) {
                 $constraint->aspectRatio();
             })->save($destinationPath.'/'.$input['imagename']);
 
-            $destinationPath = public_path('images/slider');
+            //$destinationPath = public_path('images/slider');
+            $destinationPath = base_path('../klikdesa/images/slider');
             $image->move($destinationPath, $input['imagename']);
        
         }
@@ -63,13 +65,15 @@ class SliderController extends Controller
             }
             $image = $request->file('gambar');
             $input['imagename'] = time().'-'.$image->getClientOriginalName();
-            $destinationPath = public_path('images/slider/thumbnail');
+            //$destinationPath = public_path('images/slider/thumbnail');
+            $destinationPath = base_path('../klikdesa/images/slider/thumbnail');
             $img = Image::make($image->getRealPath());
             $img->resize(150,null, function ($constraint) {
                 $constraint->aspectRatio();
             })->save($destinationPath.'/'.$input['imagename']);
 
-            $destinationPath = public_path('images/slider');
+            //$destinationPath = public_path('images/slider');
+            $destinationPath = base_path('../klikdesa/images/slider');
             $image->move($destinationPath, $input['imagename']);
 
             SliderModel::where('id',$id)

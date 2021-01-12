@@ -32,6 +32,10 @@
                                 <input type="text" class="form-control" value="{{$data->judul}}" name="judul" required autofocus>
                             </div>
                             <div class="form-group">
+                                <label for="exampleInputEmail1">Sub-Judul</label>
+                                <textarea name="subjudul" class="form-control" cols="30">{{$data->subjudul}}</textarea>
+                            </div>
+                            <div class="form-group">
                                 <label for="exampleInputEmail1">Kategori</label>
                                 <select name="kategori" class="form-control">
                                     @foreach($kategori as $kat)

@@ -8,6 +8,7 @@
                 </p>
             </a>
         </li>
+        @if(Auth::user()->level=='Super Admin')
         <li class="nav-item">
             <a href="{{url('/admin')}}" class="nav-link">
                 <i class="nav-icon fas fa-users"></i>
@@ -16,6 +17,7 @@
                 </p>
             </a>
         </li>
+        @endif
         <!-- <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-th-large"></i>
@@ -87,6 +89,14 @@
                 <i class="nav-icon fas fa-image"></i>
                 <p>
                     Slider
+                </p>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="{{url('/fitur')}}" class="nav-link">
+                <i class="nav-icon fas fa-list"></i>
+                <p>
+                    Fitur
                 </p>
             </a>
         </li>
