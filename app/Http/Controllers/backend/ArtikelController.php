@@ -43,15 +43,15 @@ class ArtikelController extends Controller
             $image = $request->file('gambar');
             $input['imagename'] = time().'-'.$image->getClientOriginalName();
          
-            //$destinationPath = public_path('images/artikel/thumbnail');
-            $destinationPath = base_path('../klikdesa/images/artikel/thumbnail');
+            $destinationPath = public_path('images/artikel/thumbnail');
+            //$destinationPath = base_path('../klikdesa/images/artikel/thumbnail');
             $img = Image::make($image->getRealPath());
             $img->resize(150,null, function ($constraint) {
                 $constraint->aspectRatio();
             })->save($destinationPath.'/'.$input['imagename']);
 
-            //$destinationPath = public_path('images/artikel');
-            $destinationPath = base_path('../klikdesa/images/artikel');
+            $destinationPath = public_path('images/artikel');
+            //$destinationPath = base_path('../klikdesa/images/artikel');
             $image->move($destinationPath, $input['imagename']);
        
         }
@@ -88,14 +88,14 @@ class ArtikelController extends Controller
             
             $image = $request->file('gambar');
             $input['imagename'] = time().'-'.$image->getClientOriginalName();
-            //$destinationPath = public_path('images/artikel/thumbnail');
-            $destinationPath = base_path('../klikdesa/images/artikel/thumbnail');
+            $destinationPath = public_path('images/artikel/thumbnail');
+            //$destinationPath = base_path('../klikdesa/images/artikel/thumbnail');
             $img = Image::make($image->getRealPath());
             $img->resize(150,null, function ($constraint) {
                 $constraint->aspectRatio();
             })->save($destinationPath.'/'.$input['imagename']);
-            //$destinationPath = public_path('images/artikel');
-            $destinationPath = base_path('../klikdesa/images/artikel');
+            $destinationPath = public_path('images/artikel');
+            //$destinationPath = base_path('../klikdesa/images/artikel');
             $image->move($destinationPath, $input['imagename']);
             
             ArtikelModel::where('id',$id)

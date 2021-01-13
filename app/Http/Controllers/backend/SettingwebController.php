@@ -68,8 +68,8 @@ class SettingwebController extends Controller
 
             $image = $request->file('logo');
             $input['imagename'] = time().'-'.$image->getClientOriginalName();
-            //$destinationPath = public_path('images/setting');
-            $destinationPath = base_path('../klikdesa/images/setting');
+            $destinationPath = public_path('images/setting');
+            //$destinationPath = base_path('../klikdesa/images/setting');
             $image->move($destinationPath, $input['imagename']);
 
             SettingwebModel::where('id',$request->kode)
@@ -97,8 +97,8 @@ class SettingwebController extends Controller
 
             $image = $request->file('favicon');
             $input['imagename'] = time().'-'.$image->getClientOriginalName();
-            //$destinationPath = public_path('images/setting');
-            $destinationPath = base_path('../klikdesa/images/setting');
+            $destinationPath = public_path('images/setting');
+            //$destinationPath = base_path('../klikdesa/images/setting');
             $image->move($destinationPath, $input['imagename']);
 
             SettingwebModel::where('id',$request->kode)
