@@ -12,9 +12,9 @@
                 &.shape-1{
                     width: 588px;
                     height: 588px;
-                    background: -moz-linear-gradient( 70deg, rgb(116,86,204) 0%, rgb(207,147,213) 100%);
-                    background: -webkit-linear-gradient( 70deg, rgb(116,86,204) 0%, rgb(207,147,213) 100%);
-                    background: -ms-linear-gradient( 70deg, rgb(116,86,204) 0%, rgb(207,147,213) 100%);
+                    background: -moz-linear-gradient( 70deg, #ff8257 0%, #ff8257 100%);
+                    background: -webkit-linear-gradient( 70deg, #ff8257 0%, #ff8257 100%);
+                    background: -ms-linear-gradient( 70deg, #ff8257 0%, #ff8257 100%);
                     border-radius: 50px;
                     @include transform(rotate(-45deg));
                     top: -63%;

@@ -6,9 +6,10 @@
     @foreach($webset as $ws)
     <title>{{$ws->singkatan}}</title>
     <link rel="shortcut icon" href="{{asset('images/setting/'.$ws->favicon)}}" type="image/png">
+    <meta name="description" content="{{$ws->meta}}">
     @endforeach
 
-    <meta name="description" content="">
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{asset('assets/frontend/css/plugins/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/frontend/css/plugins/fontawesome.min.css')}}">
@@ -25,7 +26,7 @@
             <div class="container position-relative">
                 <a class="navbar-brand" href="{{url('/')}}" style="width:80%;color:#2e3d62;">
                     @foreach($webset as $ws)
-                    <img src="{{asset('images/setting/'.$ws->logo)}}" alt="Logo" width="25%">
+                    <img src="{{asset('images/setting/'.$ws->logo)}}" alt="Logo" width="20%">
                     <span style="font-size:35px;font-color:#ff8257;"><b>{{$ws->nama}}</b></span>
                     @endforeach
                 </a>
@@ -38,12 +39,12 @@
 
                 <div class="collapse navbar-collapse sub-menu-bar" id="navbarContent">
                     <ul class="navbar-nav ml-auto">
-                        <li class="active mr-4"><a class="page-scroll" href="#home">Home</a></li>
-                        <li class="mr-4"><a class="page-scroll" href="#fitur">Fitur</a></li>
-                        <li class="mr-4"><a class="page-scroll" href="#profile">Profile</a></li>
-                        <li class="mr-4"><a class="page-scroll" href="#screenshot">Interface</a></li>
-                        <li class="mr-4"><a class="page-scroll" href="#galeri">Galeri</a></li>
-                        <li class="mr-4"><a class="page-scroll" href="#blog">Artikel</a></li>
+                        <li class="active mr-4"><a class="page-scroll" href="{{url('/')}}#home">Home</a></li>
+                        <li class="mr-4"><a class="page-scroll" href="{{url('/')}}#fitur">Fitur</a></li>
+                        <li class="mr-4"><a class="page-scroll" href="{{url('/')}}#profile">Profile</a></li>
+                        <li class="mr-4"><a class="page-scroll" href="{{url('/')}}#screenshot">Interface</a></li>
+                        <li class="mr-4"><a class="page-scroll" href="{{url('/')}}#galeri">Galeri</a></li>
+                        <li class="mr-4"><a class="page-scroll" href="{{url('/')}}#blog">Artikel</a></li>
                     </ul>
                     <div class="navbar-btn">
                         <a href="#footer" class="main-btn page-scroll">Contact Us</a>
@@ -90,11 +91,6 @@
             </div>
         </div>
     </section>
-
-    <!--====== Banner Ends ======-->
-
-    <!--====== Features Start ======-->
-
     <section id="fitur" class="features-area">
         <div class="container">
             <div class="row justify-content-center">
@@ -127,16 +123,6 @@
             </div>
         </div>
     </section>
-
-    <!--====== Features Ends ======-->
-
-
-
-
-    <!--====== Discover Ends ======-->
-
-    <!--====== Everything Start ======-->
-
     <section id="profile" class="everything-area">
         <div class="everything-shape shape-1"></div>
         <div class="everything-shape shape-2"></div>
@@ -146,7 +132,7 @@
                 <div class="col-lg-6">
                     <div class="everything-image mt-50 wow fadeInLeftBig" data-wow-duration="1s" data-wow-delay="0.3s">
                         <div class="image">
-                            <img src="{{asset('assets/frontend/images/everything.png')}}" alt="">
+                            <img src="{{asset('img/sicuan-1.jpeg')}}" alt="">
                         </div>
                     </div>
                 </div>
@@ -205,7 +191,6 @@
                     </div>
                 </div>
             </div>
-            <!-- Add Pagination -->
             <div class="screenshot-pagination"></div>
         </div>
     </section>
@@ -227,13 +212,37 @@
                     <div class="col-lg-4 blog-col">
                         <div class="single-blog mt-55 wow fadeInLeftBig" data-wow-duration="1.3s" data-wow-delay="0.4s">
                             <div class="blog-image">
-                                <a href="blog-details.html"><img src="{{asset('images/galeri/'.$gl->gambar)}}"
-                                        alt=""></a>
+                                <a data-toggle="modal" data-target="#galeri{{$gl->id}}"><img
+                                        src="{{asset('images/galeri/'.$gl->gambar)}}" alt=""></a>
                                 <span class="date">{{$gl->judul}}</span>
                             </div>
                         </div>
                     </div>
+                    <div class="modal fade" id="galeri{{$gl->id}}" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-md" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">{{$gl->judul}}</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <img src="{{asset('images/galeri/'.$gl->gambar)}}"
+                                        class="card-img-top img-thumnail imgcustom" alt="..."
+                                        style="border: solid #E6E9E8 4px;">
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     @endforeach
+                    <div class="col-12 mt-4 text-center">
+                        <a href="{{url('list-galeri')}}" class="mt-3 main-btn main-btn-2">Lihat Semua Foto Galeri</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -256,8 +265,8 @@
                     <div class="col-lg-4 blog-col">
                         <div class="single-blog mt-55 wow fadeInLeftBig" data-wow-duration="1.3s" data-wow-delay="0.4s">
                             <div class="blog-image">
-                                <a href="blog-details.html"><img
-                                        src="{{asset('images/artikel/'.$art->gambar)}}" alt=""></a>
+                                <a href="{{url('/detail-artikel/'.$art->slug)}}"><img
+                                        src="{{asset('images/artikel/'.$art->gambar)}}" height="220px;" alt=""></a>
                                 <span class="date">{{$art->created_at}}</span>
                             </div>
                             <div class="blog-content">
@@ -265,12 +274,16 @@
                                     <li><a href="#">By Admin</a></li>
                                     <li><a href="#">{{$art->namakategori}}</a></li>
                                 </ul>
-                                <h4 class="blog-title"><a href="blog-details.html">{{$art->judul}}</a></h4>
+                                <h4 class="blog-title"><a
+                                        href="{{url('/detail-artikel/'.$art->slug)}}">{{$art->judul}}</a></h4>
                                 <p>{{$art->subjudul}}</p>
                             </div>
                         </div>
                     </div>
                     @endforeach
+                    <div class="col-12 text-center">
+                        <a href="{{url('list-artikel')}}" class="mt-3 main-btn main-btn-2">Lihat Semua Artikel</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -278,22 +291,22 @@
     <footer id="footer" class="footer-area bg_cover"
         style="background-image: url(../assets/frontend/images/footer-bg.jpg);">
         <div class="footer-shape shape-1"></div>
-
         <div class="container">
             @foreach($webset as $ws)
             <div class="footer-widget">
                 <div class="row">
                     <div class="col-lg-8 pr-0">
                         <div class="footer-widget-wrapper">
-
-
                             <div class="footer-about mt-45">
-                                <h4 class="footer-title">Our Motto</h4>
-                                <p>{{$ws->moto}}</p>
+                                <h4 class="footer-title">Temukan Kami</h4>
+                                <p>Cek sosial media dari aplikasi Sicuan</p>
                                 <ul class="social">
-                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-youtube"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                    <li><a href="{{$ws->link_fb}}" target="blank()"><i
+                                                class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="{{$ws->link_youtube}}" target="blank()"><i
+                                                class="fab fa-youtube"></i></a></li>
+                                    <li><a href="{{$ws->link_ig}}" target="blank()"><i class="fab fa-instagram"></i></a>
+                                    </li>
                                 </ul>
                             </div>
                             <div class="footer-contact mt-45">
@@ -331,7 +344,7 @@
                     </div>
                     <div class="col-lg-4 pl-0">
                         <div class="footer-about mt-45">
-                            <h4 class="footer-title">Find Us</h4>
+                            <h4 class="footer-title">Lokasi Kami</h4>
                             <iframe
                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.755382549861!2d112.06014021464763!3d-7.815697794368014!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7857175f9cda31%3A0x3123610563e44ab3!2sSimpang%20Lima%20Gumul!5e0!3m2!1sid!2sid!4v1609844381273!5m2!1sid!2sid"
                                 width="100%" height="100%" class="mt-3" frameborder="0" style="border:0;"
@@ -342,7 +355,6 @@
                 </div>
             </div>
             @endforeach
-
             <div class="footer-copyright text-center">
                 <p>&copy; copyright 2021 by Sicuan</p>
             </div>

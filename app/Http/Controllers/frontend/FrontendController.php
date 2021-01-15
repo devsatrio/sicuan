@@ -29,27 +29,29 @@ class FrontendController extends Controller
 
     //=================================================================
     public function galeri(){
-        
-        $data_galeri = GaleriModel::orderby('id','desc')->paginate(16);
-        return view('frontend.galeri',['data_galeri' => $data_galeri]);
+        $data_setting = DB::table('web_setting')->orderby('id','desc')->limit(1)->get();
+        $data_galeri = GaleriModel::orderby('id','desc')->paginate(12);
+        return view('frontend.galeri',['webset'=>$data_setting,'data_galeri' => $data_galeri]);
     }
 
     //=================================================================
     public function artikel(){
-        
+        $data_setting = DB::table('web_setting')->orderby('id','desc')->limit(1)->get();
         $data_artikel = ArtikelModel::select(DB::raw('artikel.*,kategori_artikel.nama as namakategori'))
         ->leftjoin('kategori_artikel','kategori_artikel.id','=','artikel.id_kategori')
-        ->orderby('id','desc')->paginate(16);
-        return view('frontend.artikel',['data_artikel' => $data_artikel]);
+        ->orderby('id','desc')->paginate(12);
+        return view('frontend.artikel',['webset'=>$data_setting,'data_artikel' => $data_artikel]);
     }
 
     //=================================================================
     public function detailartikel($slug){
+        $data_setting = DB::table('web_setting')->orderby('id','desc')->limit(1)->get();
         $detail_artikel = ArtikelModel::select(DB::raw('artikel.*,kategori_artikel.nama as namakategori'))
         ->leftjoin('kategori_artikel','kategori_artikel.id','=','artikel.id_kategori')
         ->where('artikel.slug',$slug)
         ->get();
-
-        return view('frontend.detailartikel',['detail' => $detail_artikel]);
+        $data_artikel = DB::table('artikel')->select(DB::raw('artikel.*,kategori_artikel.nama as namakategori'))->leftjoin('kategori_artikel','artikel.id_kategori','=','kategori_artikel.id')->inRandomOrder()->limit(6)->get();
+        
+        return view('frontend.detailartikel',['webset'=>$data_setting,'detail' => $detail_artikel,'artikellain'=>$data_artikel]);
     }
 }
